@@ -47,12 +47,12 @@ render(){
        <FaGithubAlt/>
        Repositories of people
     </h1>
-    <form onSubmit={this.handleSubmit}>
+    <Form onSubmit={this.handleSubmit}>
         <input type="text" placeholder="Adicionar repositório" value={newRepo} onChange={this.handleInputChange}/>
 <SubmitButton loading={loading}>
     {loading ?(<FaSpinner color="#fff" size={14}/>) : (<FaPlus color="#fff" size={14}/>) }
 </SubmitButton>
-    </form>
+    </Form>
     <List>
         {repositories.map(repository =>(
             <li key={repository.name}>
