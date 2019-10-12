@@ -9,7 +9,10 @@ const schema = Yup.object().shape({
     email: Yup.string()
         .email('Insira um email válido')
         .required('O email é obrigatório'),
-    password: Yup.string()
+    senha: Yup.string()
+        .min('No mínimo 6 caracteres')
+        .required('A senha é obrigatória'),
+    senhaConfirmacao: Yup.string()
         .min('No mínimo 6 caracteres')
         .required('A senha é obrigatória'),
 });
@@ -24,8 +27,9 @@ export default function SignUp() {
             <Form schema={schema} onSubmit={handleSubmit}>
                 <Input name="name" placeholder="Nome completo" />
                 <Input name="email" type="email" placeholder="Seu email" />
+                <Input name="senha" type="password" placeholder="Sua senha" />
                 <Input
-                    name="password"
+                    name="senhaConfirmacao"
                     type="password"
                     placeholder="Sua senha"
                 />

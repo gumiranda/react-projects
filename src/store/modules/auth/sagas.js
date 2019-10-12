@@ -4,7 +4,8 @@ import { signInSuccess } from './actions';
 import history from '~/services/history';
 
 export function* signIn({ payload }) {
-    const { email, senha, senhaConfirmacao } = payload;
+    const { email, senha } = payload;
+    const senhaConfirmacao = senha;
     const response = yield call(api.post, 'usuario/autenticar', {
         email,
         senha,

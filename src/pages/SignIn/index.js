@@ -12,16 +12,13 @@ const schema = Yup.object().shape({
         .email('Insira um email válido')
         .required('O email é obrigatório'),
     senha: Yup.string().required('A senha é obrigatória'),
-    senhaConfirmacao: Yup.string().required(
-        'A confirmação da senha é obrigatória'
-    ),
 });
 // import { Container } from './styles';
 export default function SignIn() {
     const dispatch = useDispatch();
 
-    function handleSubmit({ email, senha, senhaConfirmacao }) {
-        dispatch(signInRequest(email, senha, senhaConfirmacao));
+    function handleSubmit({ email, senha }) {
+        dispatch(signInRequest(email, senha, senha));
         // console.tron.log(data);
     }
     return (
@@ -30,11 +27,6 @@ export default function SignIn() {
             <Form schema={schema} onSubmit={handleSubmit}>
                 <Input name="email" type="email" placeholder="Seu email" />
                 <Input name="senha" type="password" placeholder="Sua senha" />
-                <Input
-                    name="senhaConfirmacao"
-                    type="password"
-                    placeholder="Confirme sua senha"
-                />
                 <button type="submit">Acessar</button>
                 <Link to="/register">
                     Ainda não tem conta? Clique aqui para criar
