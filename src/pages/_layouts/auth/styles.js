@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
     width: 100%;
     max-width: 315px;
+    margin-top: 50px;
     text-align: center;
     form {
         display: flex;

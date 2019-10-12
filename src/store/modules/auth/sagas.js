@@ -6,11 +6,17 @@ import history from '~/services/history';
 export function* signIn({ payload }) {
     const { email, senha } = payload;
     const senhaConfirmacao = senha;
-    const response = yield call(api.post, 'usuario/autenticar', {
-        email,
-        senha,
-        senhaConfirmacao,
-    });
+
+    const response = yield call(
+        api.post,
+        'usuario/autenticar',
+        {
+            email,
+            senha,
+            senhaConfirmacao,
+        },
+        { mode: 'no-cors' }
+    );
     const { token, usuario } = response.data;
     /* if(!user.provider){
         console.tron.error('Usuario nao eh prestador');
