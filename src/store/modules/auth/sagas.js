@@ -20,6 +20,7 @@ export function* signIn({ payload }) {
         return;
     }
     */
+        api.defaults.headers['x-access-token'] = token;
         yield put(signInSuccess(token, usuario));
         history.push('/dashboard');
     } catch (err) {
