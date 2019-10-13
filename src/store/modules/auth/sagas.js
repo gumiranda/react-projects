@@ -20,7 +20,7 @@ export function* signIn({ payload }) {
         return;
     }
     */
-        api.defaults.headers['x-access-token'] = token;
+        api.defaults.headers.Authorization = `Bearer ${token}`;
         yield put(signInSuccess(token, usuario));
         history.push('/dashboard');
     } catch (err) {
