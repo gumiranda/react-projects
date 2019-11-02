@@ -14,30 +14,12 @@ export default function Routes() {
     return (
         <Router history={history}>
             <Switch>
-                <Route
-                    path={`${process.env.PUBLIC_URL}/dashboard`}
-                    component={Dashboard}
-                    isPrivate
-                />
-                <Route
-                    path={`${process.env.PUBLIC_URL}/register`}
-                    component={SignUp}
-                />
-                <Route
-                    path={`${process.env.PUBLIC_URL}/`}
-                    exact
-                    component={SignIn}
-                />
-                <Route
-                    path={`${process.env.PUBLIC_URL}/profile`}
-                    component={Profile}
-                    isPrivate
-                />
+                <Route path="/dashboard" component={Dashboard} isPrivate />
+                <Route path="/register" component={SignUp} />
+                <Route path="/" exact component={SignIn} />
+                <Route path="/profile" component={Profile} isPrivate />
 
-                <Route
-                    path={`${process.env.PUBLIC_URL}/`}
-                    component={() => <h1>404</h1>}
-                />
+                <Route path="/" component={() => <h1>404</h1>} />
             </Switch>
         </Router>
     );
